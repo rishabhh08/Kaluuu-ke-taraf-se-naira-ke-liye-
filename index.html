@@ -2,79 +2,58 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>For My Naira</title>
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        body { margin: 0; background: #000; color: #fff; font-family: 'Quicksand', sans-serif; display: flex; justify-content: center; align-items: center; min-height: 100vh; overflow-x: hidden; }
+        body { margin: 0; background: #000; color: #333; font-family: 'Arial', sans-serif; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
         .heart { position: absolute; color: #ff69b4; font-size: 20px; animation: float 5s linear infinite; }
-        @keyframes float { 0% { transform: translateY(100vh); opacity: 0; } 50% { opacity: 1; } 100% { transform: translateY(-10vh); opacity: 0; } }
-        
-        .container { background: #ffc0cb; color: #333; padding: 20px; border-radius: 20px; width: 85%; max-width: 400px; text-align: center; box-shadow: 0 0 20px rgba(255,105,180,0.5); }
-        .btn { display: block; background: #fff; border: none; padding: 10px 20px; margin: 10px auto; border-radius: 15px; font-weight: bold; cursor: pointer; transition: 0.3s; }
-        .btn:active { transform: scale(0.95); }
-        #naira-btn { position: relative; }
-        .hidden { display: none; }
-        img, video { width: 100%; border-radius: 10px; margin-top: 10px; }
-        b { font-size: 1.1em; }
+        @keyframes float { 0% { transform: translateY(100vh); opacity: 0; } 100% { transform: translateY(-10vh); opacity: 1; } }
+        .box { background: #ffc0cb; padding: 20px; border-radius: 20px; width: 80%; max-width: 350px; text-align: center; font-weight: bold; font-size: 14px; }
+        .btn { display: block; background: #fff; border: 2px solid #ff69b4; padding: 10px; margin: 10px auto; border-radius: 10px; cursor: pointer; width: 90%; }
+        img, video { width: 100%; border-radius: 10px; margin: 10px 0; }
     </style>
 </head>
 <body>
-
-<div id="hearts-container"></div>
-
-<div class="container" id="main-box">
-    <div id="content">
-        <!-- Initial Content -->
-        <img src="cat.jpg" alt="Cute Cat">
-        <h2>Hello Meri jaan</h2>
-        <button class="btn" onclick="playMusic()">Play Music</button>
-        <button class="btn" id="naira-btn" onmouseover="moveNaira()">Naira</button>
-        <button class="btn" onclick="showPage('page1')">Hanji Shona</button>
+    <div id="hearts"></div>
+    <div class="box" id="app">
+        <div id="content">
+            <img src="cat_photo.jpg"> <!-- Add cat photo here -->
+            <p><b>Hello Meri jaan</b></p>
+            <button class="btn" onclick="document.getElementById('song').play()">Play Music</button>
+            <button class="btn" id="naira" style="position:relative;" onmouseover="this.style.left=(Math.random()*100)+'px'">Naira</button>
+            <button class="btn" onclick="show('page1')">Hanji Shona</button>
+        </div>
     </div>
-</div>
+    <audio id="song" src="music.mp3"></audio> <!-- Add your music here -->
 
-<script>
-    // Audio setup
-    const audio = new Audio('YOUR_MUSIC_FILE.mp3');
-    function playMusic() { audio.play(); }
-
-    // Heart Animation
-    for(let i=0; i<15; i++) {
-        let h = document.createElement('div');
-        h.innerHTML = '❤️'; h.className = 'heart';
-        h.style.left = Math.random()*100 + '%';
-        h.style.animationDelay = Math.random()*5 + 's';
-        document.getElementById('hearts-container').appendChild(h);
-    }
-
-    function moveNaira() {
-        let b = document.getElementById('naira-btn');
-        b.style.left = (Math.random() * 100 - 50) + 'px';
-    }
-
-    const pages = {
-        'page1': '<b>ajj 19 june ho gaya dekha dekha dekha dekha main hu na aj bhi tujhse obsessed gori cylinder kahiki</b><br><button class="btn" onclick="showPage(\'page2\')">Chal chal</button>',
-        'page2': 'thankyou yar meri life me ane ke liye tune sikhaya pyar kese karte he sab kuch sikhaya or tujhe pta hai nahi tujhe kya hi pta hoga<br><button class="btn" onclick="showPage(\'page3\')">Aage jake gu kha</button>',
-        'page3': '<b>idc tu pyar kr na kr main bas tere sath fix hu that\'s it or tu bohot pyari he mere liye duniya jaye bhadme mere liye pyari he to he that\'s it or ha ek baat Teri following list wali ki M K C 200 ke speed se</b><br><button class="btn" onclick="showPage(\'page4\')">Smbhal ke jao</button>',
-        'page4': '<b>tu abhi bhi bacchi he to main chahunga meri chatra chaya me reh khus rahegi bf na shi dost banake rkh bohot acha insaan hu khush rkhunga aage Tak smjh rhi hai??</b><br><button class="btn" onclick="showPage(\'page5\')">Or sun</button>',
-        'page5': '<b>or na sab kuch bhul ja smjh rhi hai jo tha hum dono ke bich badhiya tha tab move on krle mere bina man laga le mera to nhi lagne wala hamesha hi ese pareshan krunga tujhe bas</b><br><button class="btn" onclick="showPage(\'page6\')">Orrrr ye tere liye</button>',
-        'page6': '<b>A cute teddy bear running from far distance...</b><br><button class="btn" onclick="showPage(\'page7\')">Betu</button>',
-        'page7': '<b>life na bohot lambi he Today it has been 2 years with you Naira...</b><br><button class="btn" onclick="showPage(\'page8\')">Next</button>',
-        'page8': '<b>jis ladke ko koi pighla nhi skta tha...</b><br><button class="btn" onclick="showPage(\'page9\')">Next</button>',
-        'page9': '<b>tumne jo kiya kabhi bhulunga nahi...</b><br><button class="btn" onclick="showPage(\'page10\')">Next</button>',
-        'page10': '<b>Bro you got that one energy...</b><br><button class="btn" onclick="showPage(\'page11\')">Next</button>',
-        'page11': '<b>hamesha burai nahi karunga bas tumhare samne react krta hu...</b><br><button class="btn" onclick="showPage(\'page12\')">Andddd</button>',
-        'page12': '<b>I LoVe youuuu Patel nagar ki kuween ( chapri)</b><br><button class="btn" onclick="showPage(\'page13\')">Ye dekh</button>',
-        'page13': '<video src="video1.mp4" controls></video><p>Idhar hi hu main hamesha</p><button class="btn" onclick="showPage(\'page14\')">Ye dekh</button>',
-        // Add remaining pages following the same pattern...
-        'page14': '<img src="photo1.jpg"><p>ye sab moment dekh</p><button class="btn" onclick="showPage(\'page15\')">Lots of love</button>',
-        'page15': '<b>lots of love from your kaluuu hamesha idhar hi or abse Rishuuu bolna...</b>'
-    };
-
-    function showPage(p) {
-        document.getElementById('content').innerHTML = pages[p];
-    }
-</script>
+    <script>
+        const pages = {
+            'page1': '<b>ajj 19 june ho gaya dekha dekha dekha dekha main hu na aj bhi tujhse obsessed gori cylinder kahiki</b><button class="btn" onclick="show(\'page2\')">Chal chal</button>',
+            'page2': 'thankyou yar meri life me ane ke liye tune sikhaya pyar kese karte he sab kuch sikhaya or tujhe pta hai nahi tujhe kya hi pta hoga<button class="btn" onclick="show(\'page3\')">Aage jake gu kha</button>',
+            'page3': '<b>idc tu pyar kr na kr main bas tere sath fix hu that\'s it or tu bohot pyari he mere liye duniya jaye bhadme mere liye pyari he to he that\'s it or ha ek baat Teri following list wali ki M K C 200 ke speed se</b><button class="btn" onclick="show(\'page4\')">Smbhal ke jao</button>',
+            'page4': '<b>tu abhi bhi bacchi he to main chahunga meri chatra chaya me reh khus rahegi bf na shi dost banake rkh bohot acha insaan hu khush rkhunga aage Tak smjh rhi hai??</b><button class="btn" onclick="show(\'page5\')">Or sun</button>',
+            'page5': '<b>or na sab kuch bhul ja smjh rhi hai jo tha hum dono ke bich badhiya tha tab move on krle mere bina man laga le mera to nhi lagne wala hamesha hi ese pareshan krunga tujhe bas</b><button class="btn" onclick="show(\'page6\')">Orrrr ye tere liye</button>',
+            'page6': '<b>A cute teddy bear running...</b><button class="btn" onclick="show(\'page7\')">Betu</button>',
+            'page7': '<b>Today it has been 2 years with you Naira since the first time I saw you...</b><button class="btn" onclick="show(\'page8\')">Next</button>',
+            'page8': '<b>jis ladke ko koi pighla nhi skta tha...</b><button class="btn" onclick="show(\'page9\')">Next</button>',
+            'page9': '<b>tumne jo kiya kabhi bhulunga nahi...</b><button class="btn" onclick="show(\'page10\')">Next</button>',
+            'page10': '<b>Bro you got that one energy...</b><button class="btn" onclick="show(\'page11\')">Next</button>',
+            'page11': '<b>hamesha burai nahi karunga bas tumhare samne react krta hu...</b><button class="btn" onclick="show(\'page12\')">Andddd</button>',
+            'page12': '<b>I LoVe youuuu Patel nagar ki kuween ( chapri)</b><button class="btn" onclick="show(\'page13\')">Ye dekh</button>',
+            'page13': '<video src="v1.mp4" controls></video><p>Idhar hi hu main hamesha</p><button class="btn" onclick="show(\'page14\')">Ye dekh</button>',
+            'page14': '<img src="p1.jpg"><p>ye sab moment dekh</p><button class="btn" onclick="show(\'page15\')">Ye dekh</button>',
+            'page15': '<img src="Screenshot_2024-09-14-01-42-36-611_com.instagram.android.jpg"><p>Yehi tha tujhe dekhke pgl hua tha</p><button class="btn" onclick="show(\'page16\')">Ye dekh</button>',
+            'page16': '<img src="p3.jpg"><p>Ye mera sabse fav photo he</p><button class="btn" onclick="show(\'page17\')">Ye dekh</button>',
+            'page17': '<video src="v2.mp4" controls></video><p>🥹🫶🏻</p><button class="btn" onclick="show(\'page18\')">Ye dekh</button>',
+            'page18': '<img src="p4.jpg"><p>Bohot sundar he tu🫠ek dam meri lagti he</p><button class="btn" onclick="show(\'page19\')">Ye dekh</button>',
+            'page19': '<video src="v3.mp4" controls></video><p>Kabhi nahi bhul paunga tujhe🫠🫶🏻</p><button class="btn" onclick="show(\'page20\')">Ye dekh</button>',
+            'page20': '<img src="p5.jpg"><p>🫠🫶🏻</p><button class="btn" onclick="show(\'page21\')">Ye dekh</button>',
+            'page21': '<img src="p6.jpg"><button class="btn" onclick="show(\'page22\')">Ye dekh</button>',
+            'page22': '<img src="p7.jpg"><button class="btn" onclick="show(\'page23\')">Ye dekh</button>',
+            'page23': '<img src="p8.jpg"><button class="btn" onclick="show(\'page24\')">Lots of love</button>',
+            'page24': '<b>lots of love from your kaluuu hamesha idhar hi...</b>'
+        };
+        function show(p) { document.getElementById('content').innerHTML = pages[p]; }
+    </script>
 </body>
 </html>
