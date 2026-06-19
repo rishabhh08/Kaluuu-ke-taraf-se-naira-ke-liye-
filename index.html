@@ -3,74 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For My Jaan</title>
+    <title>For Naira</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap');
-        body { background: #000; margin: 0; display: flex; justify-content: center; align-items: center; min-height: 100vh; font-family: 'Quicksand', sans-serif; overflow: hidden; }
-        .box { background: #ffc0cb; padding: 25px; border-radius: 30px; width: 85%; max-width: 320px; text-align: center; box-shadow: 0 0 20px #ffc0cb; border: 2px solid #ff69b4; position: absolute; }
+        body { margin: 0; background: #000; display: flex; justify-content: center; align-items: center; min-height: 100vh; font-family: sans-serif; overflow: hidden; }
+        .box { background: #ffc0cb; padding: 20px; border-radius: 25px; width: 85%; max-width: 300px; text-align: center; border: 3px solid #ff69b4; position: absolute; box-shadow: 0 0 15px #ff69b4; }
         .hidden { display: none; }
-        button { background: #000; color: #fff; border: none; padding: 12px; border-radius: 15px; margin: 6px 0; cursor: pointer; font-weight: bold; width: 100%; font-size: 14px; }
+        button { background: #000; color: #fff; border: none; padding: 12px; border-radius: 12px; margin: 6px 0; width: 100%; font-weight: bold; cursor: pointer; }
         .heart { position: fixed; color: #ff0000; font-size: 20px; animation: float 5s linear infinite; pointer-events: none; }
         @keyframes float { 0% { transform: translateY(100vh); opacity: 1; } 100% { transform: translateY(-10vh); opacity: 0; } }
-        img, video { width: 100%; border-radius: 20px; margin-bottom: 10px; }
-        .text { font-weight: bold; font-size: 15px; color: #000; margin: 10px 0; }
+        img, video { width: 100%; border-radius: 15px; margin-bottom: 10px; }
+        .text { font-weight: bold; font-size: 15px; color: #000; }
     </style>
 </head>
 <body>
 
 <div id="hearts"></div>
 
+<!-- Page 1 -->
 <div id="p1" class="box">
-    <img src="bd1f7b84133c3b4ca0d2815c4378ebc8.jpg" alt="Cat">
-    <p class="text"><b>Hello Meri jaan</b></p>
-    <audio id="song" src="Theher Ja(KoshalWorld.Com).mp3"></audio>
-    <button onclick="document.getElementById('song').play(); showPage('p2');">PLAY</button>
+    <img src="cat.jpg">
+    <p class="text">Hello Meri jaan</p>
+    <audio id="s" src="song.mp3"></audio>
+    <button onclick="document.getElementById('s').play(); hide('p1'); show('p2');">PLAY</button>
 </div>
 
+<!-- Page 2 -->
 <div id="p2" class="box hidden">
-    <button id="nairaBtn" onmouseover="moveNaira()">Naira</button>
-    <button onclick="showPage('p3')">Hanji Shona</button>
+    <button id="nb" onmouseover="move()">Naira</button>
+    <button onclick="hide('p2'); show('p3');">Hanji Shona</button>
 </div>
 
-<div id="p3" class="box hidden" style="max-height: 80vh; overflow-y: auto;">
+<!-- Page 3 -->
+<div id="p3" class="box hidden" style="max-height: 70vh; overflow-y: auto;">
     <p class="text"><b>(Video ka option aye to notification se gana off kar lena) ajj 19 june ho gaya dekha dekha dekha dekha main hu na aj bhi tujhse obsessed gori cylinder kahiki</b></p>
-    <button onclick="showContent('thankyou yar meri life me ane ke liye tune sikhaya pyar kese karte he sab kuch sikhaya or tujhe pta hai nahi tujhe kya hi pta hoga')">Chal chal</button>
-    <button onclick="showContent('idc tu pyar kr na kr main bas tere sath fix hu that\'s it or tu bohot pyari he mere liye duniya jaye bhadme mere liye pyari he to he that\'s it or ha ek baat Teri following list wali ki M K C 200 ke speed se')">Aage Jake gu kha</button>
-    <button onclick="showContent('tu abhi bhi bacchi he to main chahunga meri chatra chaya me reh khus rahegi bf na shi dost banake rkh bohot acha insaan hu khush rkhunga aage Tak smjh rhi hai??')">Smbhal ke jao</button>
-    <button onclick="showContent('or na sab kuch bhul ja smjh rhi hai jo tha hum dono ke bich badhiya tha tab move on krle mere bina man laga le mera to nhi lagne wala hamesha hi ese pareshan krunga tujhe bas')">Or sun</button>
-    <button onclick="showMedia('vid', 'teddy.mp4', 'A cute teddy bear running towards you with hearts!')">Orrrr ye tere liye</button>
-    <button onclick="showContent('life na bohot lambi he Today it has been 2 years with you Naira since the first time I saw you and fell in love with you at first sight I still remember that moment clearly like it just happened yesterday')">Betu</button>
-    <button onclick="showContent('jis ladke ko koi pighla nhi skta tha har ek ke sath muh marta tha usko kaha se uthake tumne one woman man bana diya yara')">One Woman Man</button>
-    <button onclick="showContent('tumne jo kiya kabhi bhulunga nahi or tum jo kehti ho na ki move on krlo ho jayega ek hafte me seriously? Main meri 2 saal ka pyar se 1 hafte me move on kru')">Move On</button>
-    <button onclick="showContent('hamesha burai nahi karunga bas tumhare samne react krta hu ha wo main tumhare type ka nhi hu na sensitive hu to mtlb ho jata hai to main bura keh deta hu lekin koi or bolega I\'ll always ready to protect you my love')">Protection</button>
-    <button onclick="showContent('I LoVe youuuu Patel nagar ki kuween ( chapri)')">Andddd</button>
     
-    <button onclick="showMedia('img', 'IMG_20241108_141058_404.jpg', 'ye sab moment dekh' (1)</button>
-    <button onclick="showMedia('img', 'Screenshot_2024-12-06-20-47-39-404_com.instagram.android.jpg', '🥹 (2)</button>
-    <button onclick="showMedia('img', 'Screenshot_2025-06-13-22-06-48-169_com.instagram.android.jpg', '🫠🫶🏻')">Ye dekh (3)</button>
-    <button onclick="showMedia('img', 'Screenshot_2024-09-14-01-42-36-611_com.instagram.android.jpg', 'Yehi tha tujhe dekhke pgl hua tha😭🙏🏻' (4)</button>
-    <button onclick="showMedia('img', 'Screenshot_2026-01-07-22-28-06-443_com.gallery.player.jpg', 'Ye mera sabse fav photo he' (5)</button>
-    <button onclick="showMedia('img', 'Screenshot_2025-11-06-02-23-22-537_com.pscube.groic.jpg', '💕' (6)</button>
+    <button onclick="disp('thankyou yar meri life me ane ke liye tune sikhaya pyar kese karte he sab kuch sikhaya or tujhe pta hai nahi tujhe kya hi pta hoga')">Chal chal</button>
+    <button onclick="disp('idc tu pyar kr na kr main bas tere sath fix hu that\'s it or tu bohot pyari he mere liye duniya jaye bhadme mere liye pyari he to he that\'s it or ha ek baat Teri following list wali ki M K C 200 ke speed se')">Aage Jake gu kha</button>
+    <button onclick="disp('tu abhi bhi bacchi he to main chahunga meri chatra chaya me reh khus rahegi bf na shi dost banake rkh bohot acha insaan hu khush rkhunga aage Tak smjh rhi hai??')">Smbhal ke jao</button>
+    <button onclick="disp('or na sab kuch bhul ja smjh rhi hai jo tha hum dono ke bich badhiya tha tab move on krle mere bina man laga le mera to nhi lagne wala hamesha hi ese pareshan krunga tujhe bas')">Or sun</button>
+    <button onclick="disp('goood morning meri cutie pie 😚')">Orrrr</button>
+    <button onclick="disp('life na bohot lambi he Today it has been 2 years with you Naira since the first time I saw you and fell in love with you at first sight I still remember that moment clearly like it just happened yesterday')">Betu</button>
+    <button onclick="disp('jis ladke ko koi pighla nhi skta tha har ek ke sath muh marta tha usko kaha se uthake tumne one woman man bana diya yara')">One Woman Man</button>
+    <button onclick="disp('tumne jo kiya kabhi bhulunga nahi or tum jo kehti ho na ki move on krlo ho jayega ek hafte me seriously? Main meri 2 saal ka pyar se 1 hafte me move on kru')">Move On</button>
+    <button onclick="disp('hamesha burai nahi karunga bas tumhare samne react krta hu ha wo main tumhare type ka nhi hu na sensitive hu to mtlb ho jata hai to main bura keh deta hu lekin koi or bolega I\'ll always ready to protect you my love')">Protection</button>
+    <button onclick="disp('I LoVe youuuu Patel nagar ki kuween ( chapri)')">Andddd</button>
 
-    <button onclick="showMedia('vid', 'lv_0_20260619000705.mp4', 'Idhar hi hu main hamesha')">Ye dekh (V1)</button>
-    <button onclick="showMedia('vid', 'Screenrecorder-2024-09-01-22-32-29-923.mp4', 'kyu hila dala na' (V2)</button>
-    <button onclick="showMedia('vid', 'lv_7597859807810342197_20260405230259.mp4', 'bohot sundar he tu🫠🫶🏻')">Ye dekh (V3)</button>
-    <button onclick="showMedia('vid', 'lv_0_20260619000525.mp4', 'Ha tum bilkul wesi ho')">Ye dekh (V4)</button>
+    <p style="font-size:12px; margin-top:10px;">ye sab moment dekh</p>
+    <button onclick="media('img', 'p1.jpg', 'shyd fir kabhi na sun pau ye sab')">Photo 1</button>
+    <button onclick="media('img', 'p2.jpg', '🫠🫶🏻')">Photo 2</button>
+    <button onclick="media('img', 'p3.jpg', 'Yehi tha tujhe dekhke pgl hua tha😭🙏🏻')">Photo 3</button>
+    <button onclick="media('img', 'p4.jpg', 'Ye mera sabse fav photo he')">Photo 4</button>
+    
+    <button onclick="media('vid', 'v1.mp4', 'dekh rhi he')">Video 1</button>
+    <button onclick="media('vid', 'v2.mp4', '🥹🫶🏻')">Video 2</button>
+    <button onclick="media('vid', 'v3.mp4', 'Kabhi nahi bhul paunga tujhe🫠🫶🏻')">Video 3</button>
+    <button onclick="media('vid', 'v4.mp4', 'Ha tum bilkul wesi ho')">Video 4</button>
 
-    <button onclick="showContent('lots of love from your kaluuu hamesha idhar hi or abse Rishuuu bolna warna block kar dunga bas Rishabh nahi raha ab main or haa hichkichana mat hamesha Tera hi tu meri rahegi ya nahi bass thike khyl rkhiyo I love you soo much betuuu🥹')">Last Option</button>
+    <button onclick="disp('lots of love from your kaluuu hamesha idhar hi or abse Rishuuu bolna warna block kar dunga bas Rishabh nahi raha ab main or haa hichkichana mat hamesha Tera hi tu meri rahegi ya nahi bass thike khyl rkhiyo I love you soo much betuuu🥹')">Too</button>
 </div>
 
-<div id="pDisplay" class="box hidden">
-    <div id="contentBox" class="text"></div>
-    <button onclick="showPage('p3')">Back</button>
+<div id="pd" class="box hidden">
+    <div id="c"></div>
+    <button onclick="hide('pd'); show('p3');">Back</button>
 </div>
 
 <script>
-    function showPage(id) { document.querySelectorAll('.box').forEach(p => p.classList.add('hidden')); document.getElementById(id).classList.remove('hidden'); }
-    function moveNaira() { const b = document.getElementById('nairaBtn'); b.style.position = 'fixed'; b.style.top = Math.random()*70 + 'vh'; b.style.left = Math.random()*70 + 'vw'; }
-    function showContent(txt) { showPage('pDisplay'); document.getElementById('contentBox').innerHTML = `<b>${txt}</b>`; }
-    function showMedia(type, src, cap) { showPage('pDisplay'); document.getElementById('contentBox').innerHTML = (type=='vid' ? `<video src="${src}" controls autoplay></video>` : `<img src="${src}">`) + `<p>${cap}</p>`; }
-    setInterval(() => { let h = document.createElement('div'); h.innerHTML = '❤️'; h.className = 'heart'; h.style.left = Math.random()*100 + 'vw'; document.body.appendChild(h); setTimeout(() => h.remove(), 5000); }, 500);
+    function show(i) { document.getElementById(i).classList.remove('hidden'); }
+    function hide(i) { document.getElementById(i).classList.add('hidden'); }
+    function move() { let b=document.getElementById('nb'); b.style.position='fixed'; b.style.top=Math.random()*70+'vh'; b.style.left=Math.random()*70+'vw'; }
+    function disp(t) { hide('p3'); show('pd'); document.getElementById('c').innerHTML = '<p class="text"><b>'+t+'</b></p>'; }
+    function media(t, s, cap) { hide('p3'); show('pd'); document.getElementById('c').innerHTML = (t=='vid' ? `<video src="${s}" controls autoplay></video>` : `<img src="${s}">`) + '<p class="text"><b>'+cap+'</b></p>'; }
+    setInterval(()=>{ let h=document.createElement('div'); h.innerHTML='❤️'; h.className='heart'; h.style.left=Math.random()*100+'vw'; document.body.appendChild(h); setTimeout(()=>h.remove(), 5000); }, 500);
 </script>
 </body>
 </html>
